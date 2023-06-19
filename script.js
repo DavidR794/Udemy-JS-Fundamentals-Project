@@ -266,5 +266,159 @@ console.log(description);
 
 let x = 5;
 let z = 7;
-console.log(x > z);
-console.log(z >= x);
+console.log(x > z); //will say true or false
+console.log(z >= x); // will say true or false
+
+/*Template literal string - this helps insert variables directly into sentence, 
+ use backticks and ${} , no need for + to add stringd together */
+const fName = "david";
+const job = "mechanic";
+const birthYear = 1994;
+const yearNow = 2023;
+
+const david = ` I'm ${fName} a ${yearNow - birthYear} years old ${job} `;
+console.log(david);
+
+console.log(`this is testing 
+a new
+line, ok mate,
+with template strings  `);
+
+//if /else statements video = 18 udemy...........
+const age5 = 10;
+const isOldEnough = age5 >= 18;
+
+if (age5 >= 18) {
+  console.log("you are old enough");
+} else {
+  console.log("you are not old enough, sorry");
+}
+
+const myBirthYear = 2004;
+
+let century;
+if (myBirthYear <= 2000) {
+  century = 20;
+} else {
+  century = 21;
+}
+console.log(century);
+
+//coding 2 challenge 2
+const massMark = 78;
+const heightMark = 1.69;
+const massJohn = 92;
+const heightJohn = 1.95;
+
+const BMIMark = massMark / (heightMark * heightMark);
+const BMIJohn = massJohn / (heightJohn * heightJohn);
+console.log(BMIMark, BMIJohn);
+
+/* Write your code below. Good luck! 🙂 */
+if (BMIMark > BMIJohn) {
+  console.log(`Mark's BMI ${BMIMark} is higher than John's ${BMIJohn} !`);
+} else {
+  console.log(`John's BMI ${BMIJohn}  is higher than Mark's ${BMIMark} !`);
+}
+
+/*SWITCH statement 
+allows you to execute different blocks of code based on different conditions. 
+It provides a more concise way to write multiple 
+if...else statements when you have multiple cases to evaluate.*/
+const fruit = "orange";
+
+switch (fruit) {
+  case "apple":
+    console.log("It's an apple.");
+    break;
+  case "banana":
+    console.log("It's a banana.");
+    break;
+  case "orange":
+    console.log("It's an orange.");
+    break;
+  default:
+    console.log("It's an unknown fruit.");
+    break;
+}
+
+//FUNCTIONS*******************************************************************************************
+// Functions allow us to reuse code blocks
+//They satify the principle DRY - dont repeat yourself because they are reuseable code blocks.
+function mycar() {
+  console.log("my car is a mercedes");
+}
+//calling the function, invoking the function, running the function
+mycar(); // this logs the statement
+mycar(); // logs again
+
+//Parameters are like variables e.g. BMW and Mercedes they are like inputs.......
+//1.
+function myCars(BMW, Mercedes) {
+  console.log(BMW, Mercedes);
+  const davesCars = `Dave has ${BMW} BMWs and ${Mercedes} Mercedes Benz cars, in his garage`;
+  return davesCars;
+}
+
+//2.
+myCars(10, 5); // assigning the variables bmw=10 mercedes=5 their values aka ARGUMENTS
+//console.log((BMW, Mercedes)) line 355 logs out these values alone ... 10 , 5
+//3
+const allCars = myCars(10, 5); // put in variable called 'allCars'
+console.log(allCars); // shows 'davesCars' string with values aka arguments in console
+console.log(myCars(10, 5)); // ALSO shows 'davesCars' string with values aka arguments
+
+//4
+//using the same function with different values for the variables
+const inDavidsGarage = myCars(6, 8);
+console.log(inDavidsGarage);
+
+//Function declarations vs Expressions...
+//function declaration = function byitself
+function myAge1(yearOfBirth) {
+  return 2024 - yearOfBirth;
+}
+const myAgeAA = myAge1(1994);
+console.log(myAgeAA);
+
+//function expression = function with a const variable starting it.
+//e.g.1
+const the24Age = function (yearOfBirth) {
+  const thisAge = 2024 - yearOfBirth;
+  return `I will be ${thisAge} years old next year `;
+};
+
+console.log(the24Age(1994)); // can console.log the function or
+// const myAgeBB = the24Age(1994);// can show it this way
+// console.log(myAgeBB);
+
+//e.g.2
+const myTeam = function (Team) {
+  return Team + "  " + "is better than mancity";
+};
+const theBestTeam = myTeam("manU");
+console.log(theBestTeam); // shows string manU is better than mancity
+
+//Arrow functions - faster and easier to write code
+// returns code implicitly ,no need for curly braces
+const johnsAge = (birthYear) => 2023 - birthYear;
+const johnsNowAge = johnsAge(1994);
+console.log(johnsNowAge);
+
+const yearUntilRetire = (birthYear) => {
+  const Dage = 2023 - birthYear;
+  const retirement = 65 - Dage;
+  return retirement;
+};
+
+const davesRetirement = yearUntilRetire(1994);
+console.log(davesRetirement);
+
+const yearsToMarry = (birthYear, lastName) => {
+  const DVage = 2023 - birthYear;
+  const marryBy = 39 - DVage;
+  return `${lastName} should get married in ${marryBy} years time`;
+};
+
+console.log(yearsToMarry(1994, "smith"));
+console.log(yearsToMarry(1997, "jon snow"));
