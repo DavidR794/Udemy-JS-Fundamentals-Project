@@ -505,4 +505,4 @@ const interestedIn = prompt(
 );
 console.log(david2[interestedIn]); // brackets notation
 //this brings the prmopt and asks the question?
-//when user types job e.g. console should show engineer
+//when user types job e.g. console should show engineer as uses 'david2' object
