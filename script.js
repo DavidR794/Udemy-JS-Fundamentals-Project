@@ -379,7 +379,7 @@ function myAge1(yearOfBirth) {
   return 2024 - yearOfBirth;
 }
 const myAgeAA = myAge1(1994);
-console.log(myAgeAA);
+console.log(myAgeAA); // logs out my age in 2024
 
 //function expression = function with a const variable starting it.
 //e.g.1
@@ -422,3 +422,87 @@ const yearsToMarry = (birthYear, lastName) => {
 
 console.log(yearsToMarry(1994, "smith"));
 console.log(yearsToMarry(1997, "jon snow"));
+
+/* ARRAYS
+ - arrays use []
+ arrays start from 0
+ array is not a primitive value, it can always be changed, 
+ e,g, const friends - the array can be mutated,but enitire array cannot be changed 
+*/
+
+//ARRAY 1 E.G.
+const friends = ["jon", "mike", "alex"];
+console.log(friends);
+
+console.log(friends[2]); //shows the friend in position 2. arrays start from 0
+console.log(friends.length); // 3 - shows number of elements in array!
+console.log(friends[friends.length - 1]); // length of array is 3 elements -1 = 2 elements
+// this now leaves friends[2]= which is alex, as he is position 2 in array
+
+friends[1] = "jay";
+console.log(friends); // changes mike name to jay in console
+
+//ARRAY 2 E.G.
+//array can hold different data types and values
+// add friends array in this davido array
+const firstName1 = "David";
+const davidioJob = "Software Engineer";
+const davidio = [firstName1, 2023 - 1994, davidioJob, friends];
+console.log(davidio);
+
+//Array methods*********************************************************
+// good for structured/ordered data!!
+
+//Add elements **************************************
+//push method - is a method to add this name to the array .
+const friends1 = ["jon", "mike", "alex"];
+friends1.push("james");
+console.log(friends1);
+//unshift method - adds elements to begining of array
+friends1.unshift("luke");
+console.log(friends1);
+
+//Remove elements **************************************
+//pop method
+friends1.pop(); // pop is a method to remove the last element from array.
+console.log(friends1); //takes out james
+//shift
+friends1.shift(); // removes element from beginning of array
+console.log(friends1);
+//indexof -tells you what position an element is
+console.log(friends1.indexOf("alex")); // alex is position 2
+//includes - find out if element is included in array
+console.log(friends1.includes("dom")); // false,there is no dom in array
+
+if (friends1.includes("jon")) {
+  console.log("You have a friend named jon");
+}
+
+//OBJECTS*******************************************************************************************
+// undefined = trying to access a property that doesnt exist
+// good for unstructured data!!
+const david2 = {
+  firstName2: "dave",
+  lastName2: "Romeo",
+  age: 23,
+  job: "engineer",
+  friends2: ["mike", "mat", "jim"],
+};
+
+//dot notation
+//dot notation - uses real property name and does not allow anything inside.
+console.log(david2.lastName2);
+
+//brackets
+//only use when computing a property name , like changing
+// can put any expression inside brackets
+console.log(david2["age"]); // this is bracket notation
+
+//prompts
+
+const interestedIn = prompt(
+  "what do you want to know about Dave? firstName2 , age , job , friends2 "
+);
+console.log(david2[interestedIn]); // brackets notation
+//this brings the prmopt and asks the question?
+//when user types job e.g. console should show engineer
