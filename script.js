@@ -423,6 +423,22 @@ const yearsToMarry = (birthYear, lastName) => {
 console.log(yearsToMarry(1994, "smith"));
 console.log(yearsToMarry(1997, "jon snow"));
 
+//functions calling other functions.........
+// function myCars calls the 'makeCar'
+function makeCar(engine) {
+  return engine * 5;
+}
+
+function myCars(clio, punto) {
+  const renaultEngine = makeCar(clio);
+  const fiatEngine = makeCar(punto);
+  const davesCars = `Dave has ${renaultEngine} Engines for Renault and 
+  ${fiatEngine} Engines for Fiat in his garage`;
+  return davesCars;
+}
+
+console.log(myCars(3, 5));
+
 /* ARRAYS
  - arrays use []
  arrays start from 0
@@ -486,9 +502,10 @@ const david2 = {
   lastName2: "Romeo",
   age: 23,
   job: "engineer",
-  friends2: ["mike", "mat", "jim"],
+  hisFriends: ["mike", "mat", "jim"],
 };
 
+//dot notations vs bracket notation******************************
 //dot notation
 //dot notation - uses real property name and does not allow anything inside.
 console.log(david2.lastName2);
@@ -499,10 +516,161 @@ console.log(david2.lastName2);
 console.log(david2["age"]); // this is bracket notation
 
 //prompts
+//prompts come up on the screen:
 
 const interestedIn = prompt(
-  "what do you want to know about Dave? firstName2 , age , job , friends2 "
+  "what do you want to know about Dave? firstName2 , age , job , hisFriends "
 );
 console.log(david2[interestedIn]); // brackets notation
+
 //this brings the prmopt and asks the question?
 //when user types job e.g. console should show engineer as uses 'david2' object
+
+// if else statement to get user to enter a wrong value. e.g. location in prompt
+//will then show the wrong request response in console
+if (david2[interestedIn]) {
+  console.log(david2[interestedIn]);
+} else console.log("wrong request, please choose what you would like to know");
+
+//Adding to the david2 object
+david2.location = "london town";
+david2["instagram"] = "davidTheDon";
+console.log(david2);
+
+/* key value pairs
+functions are just another type of value
+we can create a key value pair that the value is a function,
+therefore we can add functions to objects
+-used a function declaration and not a function expression
+- any function attached to an object is called a method
+A method is a property, a property that holds a function value
+calcAge is a function value   */
+const dave1 = {
+  firstName: "Dave",
+  lastName: "Romeo",
+  age: 23,
+  job: "engineer",
+  hisFriends: ["Mike", "Mat", "Jim"],
+  hasDriversLicense: true,
+
+  calcMyAge: function (yearBirth) {
+    return 2024 - yearBirth;
+  },
+};
+
+console.log(dave1.calcMyAge(1998)); //dot notation shows 26
+console.log(dave1["calcMyAge"](1998)); // brackets shows 26
+
+//this -keyword*******************************************
+// this- helps us too not include a parameter in the function for yearBirth
+//dont need age in function brackets in console.log
+const dave2 = {
+  firstName: "Dave",
+  lastName: "Romeo",
+  age: 23,
+  yearBirth: 1997,
+  job: "engineer",
+  hisFriends: ["Mike", "Mat", "Jim"],
+  hasDriversLicense: true,
+
+  calcMyAge: function () {
+    console.log(this);
+    return 2024 - this.yearBirth;
+  },
+};
+
+console.log(dave2.calcMyAge()); //dot notation shows 27
+console.log(dave2["calcMyAge"](1998)); // brackets shows 27
+
+/* FOR LOOP****************************************************
+How to write a for loop :
+for (starting from where; how long it should last (CONDITION); increasing or decreasing){
+console.log(etc....)
+}
+
+
+//Lifting weights example
+//rep = repitition , 1 - first repitions
+//first condition create a variable(let rep )
+//for loop keeps running while condition is true.
+//loop is 1 and  stops at 10, rep++ rep is increased by 1  to 10
+// for loop first needs it conditions, starts from 1, goes only to 10 and then increases by 1.
+//${rep} = brings the sentence 10 times*/
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights is cool repetition ${rep}`);
+}
+//the for loop shows the sentence and number 10 next to it
+// can change 'rep = 1; rep <= 10' to different numbers.
+
+//Looping arrays********
+// i - is just a traditional counter name
+// 0 - array is 0 based when it comes to reading elements out of array
+//0 - is the first element that we want to start from
+//i++ - increases by 1, i < 6;- brings elements less than 6 only
+const daveArray = [
+  "dave",
+  "jenkins",
+  2023 - 1997,
+  "chief engineer",
+  ["jon", "mike", "jane", "dom"],
+  "mercedes",
+];
+// in array there are 4 elements so array can only go up to 4
+for (let i = 0; i < 6; i++) {
+  console.log(daveArray[i]);
+}
+
+//looping backwards
+for (let i = daveArray.length - 1; i >= 0; i--) {
+  console.log(daveArray[i]);
+}
+
+// using template literals in for loop
+for (let exercise = 1; exercise < 5; exercise++) {
+  console.log(`----starting new exercise ${exercise}`);
+}
+// shows line x4 times in console as its less than 5
+
+/*WHILE LOOP 
+while loop because it will run when condition is true 
+written as  while (condition)
+WHILE loop is more versatile then for loop, all it needs is a condition for it to stay running*/
+for (let rep = 1; rep <= 5; rep++) {
+  console.log(`Lifting weights is cool repetition ${rep}`);
+}
+
+let rep = 1;
+while (rep <= 5) {
+  console.log(`WHILE: Lifting weights is cool repetition ${rep}`);
+  rep++;
+}
+
+//no counter example rolling dice based on a variable
+//math.random will bring a number between 0 and 1.
+//math.trunc removes decimal in answer
+// while loops do not need a counter
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+  console.log(` you rolled a ${dice}`);
+  dice = Math.trunc(Math.random() * 6) + 1;
+  if (dice === 6) console.log("loop is abut to end....");
+}
+/**
+ very important videos to watch: roadmap for each section
+Pathway 2: only very important parts
+
+ HOW TO THINK LIKE A DEVELOPER 
+ E.G.
+ we build theremometers.
+Task: given an array of temperatures of one day,
+calculate the temperature altitude.may be sensor error.
+
+const temparatures = [1,4,6,-6,-2,8,'error',17,24,23,-7]
+
+1)First Understand the problem 
+
+
+
+VIDEO AT 17:02 USING GOOGLE STACKOVERFLOW
+*/
