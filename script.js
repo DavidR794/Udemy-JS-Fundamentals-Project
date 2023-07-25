@@ -101,7 +101,7 @@ x--; //X=X-1
 console.log (x);
 
 
-//CODE CHALLENGE MARK AND JOHN BMI
+//CODE CHALLENGE 1 MARK AND JOHN BMI 
 let markWeight = 78;
 let markHeight = 1.69;
 const mFormula = markWeight/markHeight **2 ;
@@ -114,7 +114,7 @@ console.log(jFormula);
 //Boolean is Marks BMI greater than Johns. It shoukd be true in console
 const markHigherBMI = mFormula > jFormula;
 console.log(markHigherBMI);
-
+//CODING CHALLENGE 1 COMPLETED*********************
 
 //STRINGS AND TEMPLATE LITERALS...........................................................................
 // TEMPLATE STRING 
@@ -182,7 +182,10 @@ const multiply = (number) => {
 };
 console.log(multiply(5)); //5 x 2 =10 shown in console
 
-//CLASSES.........................
+//CLASSES............................................................................
+/*ELI5 = Classes are just special instructions. Special class called HUMAN
+Constructors = workers who use special instructions to create the special classes
+*/
 //Classes are a group of objects.
 //e,g, Car is a class and its objects are :colour,registration,type of car.
 //Methods-methods which car uses: drives , reverses and turns
@@ -190,11 +193,15 @@ console.log(multiply(5)); //5 x 2 =10 shown in console
 
 //1.EXAMPLE
 // properties of a class are added using a "constructor" keyword
-// "this" keyword used to set up propererities of the class. so "name" is a proprerty.
+// "this" keyword used to set up properties of the class. so "name" is a property.
 //printmy2name is the method we used
 //use class to store instance in a constant with "new person"
 
 //classes can also inherit. e.g. Person class inherits the human
+/*Special class is Human. This Human has special instructions to create it
+1.Constructor = is the special worker who uses the special instructions to create the human
+2.Constructor gives the new human a gender of 'male' by default
+*/
 class Human {
   constructor() {
     this.gender = "male";
@@ -205,8 +212,8 @@ class Human {
 }
 class Person extends Human {
   constructor() {
-    super();
-    this.name = "john";
+    super(); // calls the Human constructor above and asks it to create a new human with default gender 'male'
+    this.name = "john"; // the person constructor now adds john as the new humans name.
   }
   printMy2Name() {
     console.log(this.name);
@@ -218,7 +225,6 @@ person.printMy2Name();
 person.printGender();
 
 //The above should show the name "John" and gender "male" in the console.
-
 //Classes,Propreties & Methors.........................
 //Properties are like variables attached to classes/objects
 //Methods are like functions attached to classes/objects
@@ -320,8 +326,61 @@ if (BMIMark > BMIJohn) {
 } else {
   console.log(`John's BMI ${BMIJohn}  is higher than Mark's ${BMIMark} !`);
 }
+//CODING CHALLENGE 2 COMPLETED********************
 
-/*SWITCH statement 
+//Challenge 3 lecture 18,23****************************************************
+//*****driving example=if/else statements****
+const Page = 24;
+if (Page > 18) {
+  console.log("Paige is able to drive a car"); // WILL SHOW IN CONSOLE
+} else {
+  const yearsToDrive = 18 - Page;
+  console.log(
+    `Paige is not able to drive yet, she needs to wait ${yearsToDrive} years ;) `
+  );
+}
+/*BOOLEAN LOGIC: AND, OR, NOT! operators -class 23 */
+//e.g. jon has drivers license AND good vision = TRUE WHEN ALL ARE TRUE
+//e.g. jon has drivers license OR good vision = TRUE WHEN ONE IS TRUE
+// !NOT = just inverts logical value of the variable
+
+// age = 20
+//A: age is >= 25  FALSE
+//B: age is <= 30  TRUE
+
+//OPERATORS
+//(!NOT) NOT!A FALSE therefore TRUE - remember Not is just the invert of the logical value of the variable
+//(AND) A=FALSE,B=TRUE  FALSE because one is false
+//(OR) A=FALSE,B=TRUE   TRUE because one is true
+//(OR) A=FALSE,!B= false  A is false and B is true but NOT !B is false, so FALSE = FALSE
+
+//CHALLENGE 3 INFO
+/*There are two gymnastics teams: Dolphins and Koalas. They compete against each other 3 times. The winner with the highest average score wins a trophy!
+1. Calculate the average score for each team, using the test data included below. The average score for Dolphins should be assigned to the scoreDolphins variable, and the average score of Koalas should be assigned to the scoreKoalas variable.*/
+
+const scoreDolphins = (96 + 108 + 89) / 3;
+const scoreKoalas = (88 + 91 + 110) / 3;
+
+/*2. Compare the team's average scores to determine the winner of the competition, and print to the console:
+"Dolphins win the trophy" if Dolphins win, or
+"Koalas win the trophy" if Koalas win, or
+"Both win the trophy" if their average scores are equal.
+TEST DATA: Dolphins scored 96, 108, and 89. Koalas scored 88, 91, and 110. */
+if (scoreDolphins > scoreKoalas) {
+  console.log(
+    `Dolphins ${scoreDolphins} score is higher than Koalas ${scoreKoalas} score, so Dolphins win !`
+  );
+} else if (scoreDolphins < scoreKoalas) {
+  console.log(
+    `Koalas ${scoreKoalas} score is higher than Dolphins ${scoreDolphins} score, so Koalas win !`
+  );
+} else {
+  console.log(
+    "Both teams have the same average score, so they both win the trophy!"
+  );
+}
+
+/*SWITCH statement - CLASS 26
 allows you to execute different blocks of code based on different conditions. 
 It provides a more concise way to write multiple 
 if...else statements when you have multiple cases to evaluate.*/
@@ -342,7 +401,28 @@ switch (fruit) {
     break;
 }
 
-//FUNCTIONS*******************************************************************************************
+/* STATEMENTS & EXPRESSIONS-27 */
+//JS EXPECTS statements & expressions in different places,
+//in a template literal we can only have expressions and not statements like "if statements"
+
+/*CONDITIONAL OPERATOR '?' */
+//Allows us to write something similar to if/else block but in one line
+//Below says if Peters age > 18 log i like alcohol ELSE':' log water
+const agePeter = 25;
+agePeter >= 18
+  ? console.log("I like alcohol🍹")
+  : console.log("I like to drink water");
+// shows in CONSOLE I LIKE ALCOHOL
+//OR DO IT THIS WAY
+const drink = agePeter >= 18 ? " alcohol🍹" : "water";
+console.log(drink);
+// shows in CONSOLE  ALCOHOL
+//OR DO IT THIS WAY WITH TEMPLATE LITERAL
+console.log(`I like to drink ${agePeter >= 18 ? " alcohol🍹" : "water"}`);
+// shows in CONSOLE I LIKE TO DRINK ALCOHOL
+
+//JAVASCRIPT FUNDAMENTALS PART 2 ***************************************************
+//FUNCTIONS  *****************************
 // Functions allow us to reuse code blocks
 //They satify the principle DRY - dont repeat yourself because they are reuseable code blocks.
 function mycar() {
@@ -515,6 +595,7 @@ console.log(david2.lastName2);
 // can put any expression inside brackets
 console.log(david2["age"]); // this is bracket notation
 
+/*Prompts has been commented out
 //prompts
 //prompts come up on the screen:
 
@@ -531,7 +612,7 @@ console.log(david2[interestedIn]); // brackets notation
 if (david2[interestedIn]) {
   console.log(david2[interestedIn]);
 } else console.log("wrong request, please choose what you would like to know");
-
+*/
 //Adding to the david2 object
 david2.location = "london town";
 david2["instagram"] = "davidTheDon";
